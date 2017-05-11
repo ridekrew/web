@@ -10,7 +10,7 @@ app.directive('googleplace', function(){
 
             google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
                 scope.$apply(function() {
-                    model.$setViewValue(element.val());                
+                    model.$setViewValue(element.val());
                 });
             });
         }
@@ -18,7 +18,7 @@ app.directive('googleplace', function(){
 })
 
 app.controller('booking_controller', function($scope, $location, BookingFactory, $element, $sce){
-	
+
 	$scope.gPlace;
 	//Creating toggle for form
 	$scope.show = 0;
@@ -34,14 +34,14 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 
 	//fetch the bookings when controller loaded
 	BookingFactory.index(setBookings);
-	
-	//Pass new booking info to factry	
+
+	//Pass new booking info to factry
 	$scope.book = function(newBooking){
 		BookingFactory.book(newBooking)
 		newBooking = {}; //reset form
 		$location.url('/submit')
 	}
-	
+
 	//ADD CAROUSEL
 	var baseURL = '/static/img/';
 	// $scope.myInterval = 5000;
@@ -59,7 +59,7 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 		};
 		if ($scope.slides.length == 2){
 			x = baseURL + 'plane.jpg'
-		}; 
+		};
 	// var newWidth = 600 + slides.length + 1;
 	console.log($scope.slides.length)
 	$scope.slides.push({
@@ -74,7 +74,7 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 
   for (var i = 0; i < 3; i++) {
     $scope.addSlide();
-  }  
+  }
 });
 
-app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });wer
+app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
