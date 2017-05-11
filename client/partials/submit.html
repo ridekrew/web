@@ -1,0 +1,13 @@
+<div ng-controller="booking_controller as BC">
+	<p>Your booking has been confirmed!</p>
+	<p>Booking Details:</p>
+	
+	<div ng-repeat = 'confirm in confirms' >
+		<p>Pick Up Location: {{confirm.origin}}</p>
+    	<p>Destination: {{confirm.destination}}</p>
+    	<p>Date: {{confirm.date}}</p>
+    	<p>Time: <time>{{confirm.time | date: "h:mm a"}}</time></p>
+    </div>
+
+</div>
+<a href = '#'>Back</a>

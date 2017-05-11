@@ -1,0 +1,89 @@
+<div ng-controller = 'booking_controller as BC'>
+	<div class = 'header'>
+		<div class = 'nav'>
+			<a href = '#' class = 'nav-link'>Book a Ride</a>
+			<a href = '#' class = 'nav-link'>Learn More</a>
+			<a href = '#' class = 'nav-link'>Blog</a>
+		</div>
+		<div class = 'title'>
+			<p>Krew</p>
+		</div>
+		<div class = 'top-buttons-ctnr'>
+			<a href = '#'>Sign Up</a>
+			<a href = '#'>Log in</a>
+		</div>
+	</div>
+	<div class = 'top-img'>
+    	<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      		<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        		<img class = 'carousel-img'ng-src="{{slide.image}}" style="margin:auto;">
+        		<!-- <div ng-bind-html="slide.text">
+           		</div>  -->
+           		<div ng-bind-html="slide.text | unsafe">
+           		</div> 
+        	</div>
+		</div>
+    </div>
+	
+		<!-- <span class = 'arrow_left'><</span>
+		<img class = 'caption' src = 'static/img/carBackground.png'>
+		<div class = 'absolute-div'>
+			<h2>Travel Intercity.</h2>
+			<p>Book a long distance trip</p>
+			<p>for a hyper-affordable price</p>
+			<button>View Promotions</button>
+		</div>
+		<img id = 'car' src = 'static/img/car.png'>
+		<span class = 'arrow_right'>></span> 
+	</div> -->
+	<div class= 'offers'>
+		<p>What do we offer?</p>
+		<div class = 'offer'>
+			<img src = 'static/img/wifi.png'>
+			<p>Free Wifi</p>
+		</div>
+		<div class = 'offer'>
+			<img src = 'static/img/door.png'>
+			<p>Door-to-Door</p>
+		</div>
+		<div class = 'offer'>
+			<img src = 'static/img/drivers.png'>
+			<p>Vetted Drivers</p>
+		</div>
+	</div>
+	<div class = 'booking'>
+		<form name = 'frm'>
+			<p>Book your Krew Experience</p>
+			<div class = 'inputs'>
+			<input type = 'text' ng-model = 'BC.newBooking.destination' placeholder="Destination" googleplace>
+			</div>
+			<div class = 'inputs'>
+				<datepicker id = 'datepicker' class = '._720kb-datepicker-today' date-format="mediumDate" date-min-limit='{{date | date: "yyyy-MM-dd"}}' >
+					<input type = 'text' ng-model='BC.newBooking.date' placeholder="Date">
+				</datepicker>
+			</div>
+			<div class = 'inputs'>
+				<input type = 'number' ng-model='BC.newBooking.passengers' placeholder="Number of People">
+			</div>
+			<div class = 'inputs'>
+				<input type = 'text' ng-model='BC.newBooking.origin' placeholder="Pick up Location" googleplace>
+			</div>
+			<div class = 'inputs'>
+				<input type = 'text' ng-model='BC.newBooking.time' placeholder="Time">
+				</datepicker>
+			</div>
+			<div class = 'inputs price'>
+				<div class = 'person-price'>
+					<span class = 'right-border'>$15</span>
+					<p>Per Person</p>
+				</div>
+				<div class = 'person-price'>
+					<span>$45</span>
+					<p>Total Person</p>
+				</div>
+			</div>
+			<button>Book</button>
+		</form>
+	</div>	
+ </div>
+
