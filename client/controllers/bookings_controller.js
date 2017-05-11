@@ -25,6 +25,12 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 
 	$scope.date = new Date();
 
+	$scope.promotions = function(){
+		console.log('working')
+		$location.url('/no-promotions')
+	}
+
+
 	function setBookings(data){
 		$scope.confirms = data;
 		$scope.newBooking = {};
@@ -55,17 +61,19 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 			x = baseURL + 'car_background.png'
 		};
 		if ($scope.slides.length == 1){
-			x = baseURL + 'future.jpg'
+			x = baseURL + 'gradient-wallpaper-2.jpg'
 		};
 		if ($scope.slides.length == 2){
-			x = baseURL + 'plane.jpg'
+			x = baseURL + 'gradient-wallpaper-3.jpg'
 		}; 
 	// var newWidth = 600 + slides.length + 1;
 	$scope.slides.push({
 	  image: x,
 	  // image: '//unsplash.it/' + newWidth + '/300',
-	  text: [("<div class = 'absolute-div'><h2>Travel Intercity.</h2><p>Book a long distance trip</p><p>for a hyper-affordable price</p><button>View Promotions</button></div><img id = 'car' src = 'static/img/test.png'>"),
-	  'Awesome photograph','That is so cool'][$scope.slides.length % 3],
+	  text: [("<div class = 'absolute-div'><h2>Travel Intercity.</h2><p>Book a long distance trip</p><p>for a hyper-affordable price</p><a href = '#!/promotions'><button>View Promotions</button></a></div><img id = 'car' src = 'static/img/test.png'>"), 
+	  		("<div class = 'absolute-div'><h2>Never wait after a flight again.</h2><p>Call a Krew Driver before flight</p><p>and travel with ease</p><button>Book Now</button></div><img id = 'car' src = 'static/img/jet.png'>"),
+	  		("<div class = 'absolute-div'><h2>Travel Intercity.</h2><p>Book a long distance trip</p><p>for a hyper-affordable price</p><button>View Promotions</button></div><img id = 'car' src = 'static/img/test.png'>")
+	  ][$scope.slides.length % 3],
 	  id: currIndex++,
 	  trustedText: $sce.trustAsHtml($scope.slides.text)
 	    });

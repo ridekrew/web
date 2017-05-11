@@ -14,5 +14,8 @@ app.config(function($routeProvider){
 	.when('/', {
 		templateUrl: 'partials/homepage.html'
 	})
+	.when('/promotions', {
+		templateUrl: 'partials/promotions.html'
+	})
 
 })
