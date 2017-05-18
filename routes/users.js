@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://root:admin@ds161630.mlab.com:61630/krew_dev', ['users']);
+var db = mongojs(process.env.MONGO_URI, ['users']);
 var bcrypt = require('bcrypt');
 var passport = require('passport');
 

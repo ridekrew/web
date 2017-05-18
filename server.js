@@ -5,6 +5,7 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 var index = require('./routes/index');
 var rideRequests = require('./routes/rideRequests');

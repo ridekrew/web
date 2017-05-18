@@ -19,7 +19,6 @@ let AuthService = class AuthService {
     login(email, password) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        console.log(JSON.stringify({ email: email, password: password }));
         return this.http.post('/auth/login', JSON.stringify({ email: email, password: password }), { headers: headers })
             .map(res => {
             var user = res.json();
