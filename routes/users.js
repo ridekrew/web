@@ -17,11 +17,12 @@ router.post('/register', passport.authenticate('local-register', {
 
 router.get('/loginSuccess', (req, res, next) => {
     console.log("Login successful.");
-    res.send("Login successful");
+    console.log(req);
+    res.json(req.user);
 });
 
 router.get('/loginFailure', (req, res, next) => {
-    res.send("Login failed");
+    res.json(req.user);
 });
 
 router.get('/logout', (req, res) => {

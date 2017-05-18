@@ -12,35 +12,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-let UserService = class UserService {
+let AuthService = class AuthService {
     constructor(http) {
         this.http = http;
-        console.log('User Service Initialized...');
     }
-    getUsers() {
-        return this.http.get('/api/tasks')
-            .map(res => res.json());
-    }
-    addUser(newUser) {
+    login(email, password) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/task', JSON.stringify(newUser), { headers: headers })
-            .map(res => res.json());
+        console.log(JSON.stringify({ email: email, password: password }));
+        return this.http.post('/auth/login', JSON.stringify({ email: email, password: password }), { headers: headers })
+            .map(res => {
+            var user = res.json();
+            console.log(user.token);
+            if (user && user.token) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            }
+        });
     }
-    deleteUser(id) {
-        return this.http.delete('/api/task/' + id)
-            .map(res => res.json());
-    }
-    updateStatus(user) {
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this.http.put('/api/task' + user._id, JSON.stringify(user), { headers: headers })
+    logout() {
+        localStorage.removeItem('currentUser');
+        return this.http.get('/auth/logout')
             .map(res => res.json());
     }
 };
-UserService = __decorate([
+AuthService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], UserService);
-exports.UserService = UserService;
-//# sourceMappingURL=user.service.js.map
+], AuthService);
+exports.AuthService = AuthService;
+//# sourceMappingURL=auth.service.js.map

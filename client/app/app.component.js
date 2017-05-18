@@ -12,17 +12,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const forms_1 = require("@angular/forms");
 const rideRequest_service_1 = require("./services/rideRequest.service");
+const auth_service_1 = require("./services/auth.service");
 let AppComponent = class AppComponent {
-    constructor(fb) {
+    constructor(fb, authService) {
         this.fb = fb;
+        this.authService = authService;
     }
     ngOnInit() {
         this.loginForm = this.fb.group({
-            email: '',
-            password: ''
+            email: ['abc@123.com', [forms_1.Validators.required]],
+            password: ['test', [forms_1.Validators.required]]
         });
     }
-    login() {
+    login(event) {
+        event.preventDefault();
+        var email = this.loginForm.get('email').value;
+        var password = this.loginForm.get('password').value;
+        this.authService.login(email, password)
+            .subscribe(user => {
+            console.log(user);
+        });
     }
 };
 AppComponent = __decorate([
@@ -31,9 +40,9 @@ AppComponent = __decorate([
         selector: 'my-app',
         templateUrl: 'app.component.html',
         styleUrls: ['app.component.css'],
-        providers: [rideRequest_service_1.RideRequestService]
+        providers: [rideRequest_service_1.RideRequestService, auth_service_1.AuthService]
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder])
+    __metadata("design:paramtypes", [forms_1.FormBuilder, auth_service_1.AuthService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
