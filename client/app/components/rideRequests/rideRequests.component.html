@@ -1,0 +1,28 @@
+<!--<form class="well" (submit)="bookRide($event)">
+    <input class="form-control" [(ngModel)]="origin" placeholder="origin" name="origin">
+    <input class="form-control" [(ngModel)]="destination" name="destination" placeholder="destination">
+    <input class="form-control" [(ngModel)]="date" name="date" placeholder="date">
+    <input class="form-control" [(ngModel)]="time" name="time" placeholder="time">
+    <button class="submit btn btn-default">Book Now!</button>
+</form>-->
+<h1>Ride Requests</h1>
+<hr>
+<div class="user-list">
+    <div *ngFor="let rideRequest of rideRequests">
+        <div class="col-md-3">
+            {{ rideRequest.origin }}
+        </div>
+        <div class="col-md-3">
+            {{ rideRequest.destination }}
+        </div>
+        <div class="col-md-2">
+            {{ rideRequest.date }}
+        </div>
+        <div class="col-md-2">
+            {{ rideRequest.time }}
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-success" (click)="claimRide(rideRequest)">Claim Ride</button>
+        </div>
+    </div>
+</div>
