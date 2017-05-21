@@ -13,12 +13,13 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   loginForm: FormGroup;
+  currentUser: any;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['abc@123.com', [Validators.required]],
+      email: ['ffosb22@gmail.com', [Validators.required]],
       password: ['test', [Validators.required]]
     });
   }
@@ -28,9 +29,25 @@ export class AppComponent implements OnInit {
     var email = this.loginForm.get('email').value;
     var password = this.loginForm.get('password').value;
     this.authService.login(email, password)
-      .subscribe(user => {
-        console.log(user);
+      .subscribe(res => {
+        var user = res.user;
+        var sessionID = res.sessionID;
+        if (user && sessionID) {
+          localStorage.setItem('currentUser', user);
+        }
+        this.currentUser = user;
       });
   }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  isAuthenticated() {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        return false;
+    }
   
 }

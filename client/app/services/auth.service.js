@@ -20,13 +20,7 @@ let AuthService = class AuthService {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         return this.http.post('/auth/login', JSON.stringify({ email: email, password: password }), { headers: headers })
-            .map(res => {
-            var user = res.json();
-            console.log(user.token);
-            if (user && user.token) {
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
-        });
+            .map(res => res.json());
     }
     logout() {
         localStorage.removeItem('currentUser');

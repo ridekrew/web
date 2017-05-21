@@ -20,7 +20,7 @@ let AppComponent = class AppComponent {
     }
     ngOnInit() {
         this.loginForm = this.fb.group({
-            email: ['abc@123.com', [forms_1.Validators.required]],
+            email: ['ffosb22@gmail.com', [forms_1.Validators.required]],
             password: ['test', [forms_1.Validators.required]]
         });
     }
@@ -29,9 +29,23 @@ let AppComponent = class AppComponent {
         var email = this.loginForm.get('email').value;
         var password = this.loginForm.get('password').value;
         this.authService.login(email, password)
-            .subscribe(user => {
-            console.log(user);
+            .subscribe(res => {
+            var user = res.user;
+            var sessionID = res.sessionID;
+            if (user && sessionID) {
+                localStorage.setItem('currentUser', user);
+            }
+            this.currentUser = user;
         });
+    }
+    logout() {
+        this.authService.logout();
+    }
+    isAuthenticated() {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        return false;
     }
 };
 AppComponent = __decorate([

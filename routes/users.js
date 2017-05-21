@@ -17,8 +17,12 @@ router.post('/register', passport.authenticate('local-register', {
 
 router.get('/loginSuccess', (req, res, next) => {
     console.log("Login successful.");
+    var user = req.user;
+    var sessionID = req.sessionID;
+    var response = { "user": req.user, "sessionID": req.sessionID }
     console.log(req);
-    res.json(req.user);
+    console.log(req.session);
+    res.json(response);
 });
 
 router.get('/loginFailure', (req, res, next) => {
@@ -44,6 +48,16 @@ router.get('/users', (req, res, next) => {
         } else {
             res.json(users);
         }
+    });
+});
+
+// Get a specific user by ID
+router.get('/user/:id', (req, res, next) => {
+    db.users.get({ _id: mongojs.ObjectId(req.params.id)}, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(user);
     });
 });
 
