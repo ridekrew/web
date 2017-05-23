@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { RideRequestsComponent } from './components/rideRequests/rideRequests.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { RideRequestsComponent } from './components/rideRequests/rideRequests.co
             { path: '', component: HomeComponent },
             { path: 'confirm', component: ConfirmComponent },
             { path: 'profile', component: RideRequestsComponent },
+            { path: 'profile/:id', component: ProfileComponent },
             { path: '**', redirectTo: '' }
         ])
     ],
@@ -25,7 +27,8 @@ import { RideRequestsComponent } from './components/rideRequests/rideRequests.co
         AppComponent,
         HomeComponent,
         ConfirmComponent,
-        RideRequestsComponent
+        RideRequestsComponent,
+        ProfileComponent
     ],
     bootstrap: [ AppComponent ]
 })

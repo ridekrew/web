@@ -27,6 +27,10 @@ let AuthService = class AuthService {
         return this.http.get('/auth/logout')
             .map(res => res.json());
     }
+    getUser(id) {
+        return this.http.get('/auth/user/id')
+            .map(res => res.json());
+    }
 };
 AuthService = __decorate([
     core_1.Injectable(),

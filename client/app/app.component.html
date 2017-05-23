@@ -69,7 +69,7 @@
                                         {{currentUser[0].email}}</p>
                                     <div class="divider">
                                     </div>
-                                    <a href="./56ExR" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                    <button class="btn btn-default btn-xs" [routerLink]="['/profile', currentUser[0]._id]"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</button>
                                     <a href="#" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
                                 </div>
                             </div>

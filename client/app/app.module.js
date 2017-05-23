@@ -15,6 +15,7 @@ const app_component_1 = require("./app.component");
 const home_component_1 = require("./components/home/home.component");
 const confirm_component_1 = require("./components/confirm/confirm.component");
 const rideRequests_component_1 = require("./components/rideRequests/rideRequests.component");
+const profile_component_1 = require("./components/profile/profile.component");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -27,6 +28,7 @@ AppModule = __decorate([
                 { path: '', component: home_component_1.HomeComponent },
                 { path: 'confirm', component: confirm_component_1.ConfirmComponent },
                 { path: 'profile', component: rideRequests_component_1.RideRequestsComponent },
+                { path: 'profile/:id', component: profile_component_1.ProfileComponent },
                 { path: '**', redirectTo: '' }
             ])
         ],
@@ -34,7 +36,8 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             home_component_1.HomeComponent,
             confirm_component_1.ConfirmComponent,
-            rideRequests_component_1.RideRequestsComponent
+            rideRequests_component_1.RideRequestsComponent,
+            profile_component_1.ProfileComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })
