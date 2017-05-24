@@ -4,6 +4,8 @@ import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/fo
 import { RideRequestService } from './services/rideRequest.service';
 import { AuthService } from './services/auth.service';
 
+import { User } from './models/User'
+
 @Component({
   moduleId: module.id,
   selector: 'my-app',
@@ -13,7 +15,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   loginForm: FormGroup;
-  currentUser: any;
+  currentUser: User;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
@@ -22,6 +24,13 @@ export class AppComponent implements OnInit {
       email: ['ffosb22@gmail.com', [Validators.required]],
       password: ['test', [Validators.required]]
     });
+    if (this.isAuthenticated()) {
+      this.authService.getUser(localStorage.getItem('userID'))
+        .subscribe(res => {
+          var user = res[0];
+          this.currentUser = user;
+        });
+    }
   }
 
   login(event) {
@@ -30,10 +39,11 @@ export class AppComponent implements OnInit {
     var password = this.loginForm.get('password').value;
     this.authService.login(email, password)
       .subscribe(res => {
-        var user = res.user;
+        var user = res.user[0];
         var sessionID = res.sessionID;
         if (user && sessionID) {
-          localStorage.setItem('currentUser', user);
+          localStorage.setItem('token', sessionID);
+          localStorage.setItem('userID', user._id);
         }
         this.currentUser = user;
       });
@@ -44,7 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   isAuthenticated() {
-        if (localStorage.getItem('currentUser')) {
+        if (localStorage.getItem('token')) {
             return true;
         }
         return false;

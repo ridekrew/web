@@ -18,7 +18,7 @@ var port = process.env.PORT || 8080;
 var app = express();
 
 // View engine
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'client/app'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 

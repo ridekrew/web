@@ -20,8 +20,6 @@ router.get('/loginSuccess', (req, res, next) => {
     var user = req.user;
     var sessionID = req.sessionID;
     var response = { "user": req.user, "sessionID": req.sessionID }
-    console.log(req);
-    console.log(req.session);
     res.json(response);
 });
 
@@ -53,7 +51,7 @@ router.get('/users', (req, res, next) => {
 
 // Get a specific user by ID
 router.get('/user/:id', (req, res, next) => {
-    db.users.get({ _id: mongojs.ObjectId(req.params.id)}, (err, user) => {
+    db.users.find({ _id: mongojs.ObjectId(req.params.id)}, (err, user) => {
         if (err) {
             res.send(err);
         }

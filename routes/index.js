@@ -18,11 +18,9 @@ router.post('/profile/:id', isAuthenticated, (req, res, next) => {
 });
 
 function isAuthenticated(req, res, next) {
-    console.log(req.user);
     if (req.user.authenticated) {
         return next();
     }
-    res.send("No!!");
 }
 
 module.exports = router;

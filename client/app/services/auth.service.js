@@ -23,12 +23,12 @@ let AuthService = class AuthService {
             .map(res => res.json());
     }
     logout() {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
         return this.http.get('/auth/logout')
             .map(res => res.json());
     }
     getUser(id) {
-        return this.http.get('/auth/user/id')
+        return this.http.get('/auth/user/' + id)
             .map(res => res.json());
     }
 };

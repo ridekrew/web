@@ -23,6 +23,13 @@ let AppComponent = class AppComponent {
             email: ['ffosb22@gmail.com', [forms_1.Validators.required]],
             password: ['test', [forms_1.Validators.required]]
         });
+        if (this.isAuthenticated()) {
+            this.authService.getUser(localStorage.getItem('userID'))
+                .subscribe(res => {
+                var user = res[0];
+                this.currentUser = user;
+            });
+        }
     }
     login(event) {
         event.preventDefault();
@@ -30,10 +37,11 @@ let AppComponent = class AppComponent {
         var password = this.loginForm.get('password').value;
         this.authService.login(email, password)
             .subscribe(res => {
-            var user = res.user;
+            var user = res.user[0];
             var sessionID = res.sessionID;
             if (user && sessionID) {
-                localStorage.setItem('currentUser', user);
+                localStorage.setItem('token', sessionID);
+                localStorage.setItem('userID', user._id);
             }
             this.currentUser = user;
         });
@@ -42,7 +50,7 @@ let AppComponent = class AppComponent {
         this.authService.logout();
     }
     isAuthenticated() {
-        if (localStorage.getItem('currentUser')) {
+        if (localStorage.getItem('token')) {
             return true;
         }
         return false;
