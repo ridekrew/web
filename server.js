@@ -45,6 +45,10 @@ app.use('/', index);
 app.use('/api', rideRequests);
 app.use('/auth', users);
 
+app.get('*', function(req, res) {
+  res.sendfile('./client/index.html')
+})
+
 app.listen(port, () => {
     console.log("Server started on port " + port);
 });
