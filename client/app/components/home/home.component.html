@@ -1,31 +1,46 @@
-<div>
-    <div class="main-panel">
-        <h1>Krew.</h1>
-        <h2>Book a long-distance trip for a hyper-affordable price.</h2>
-    </div>
-    <div class="container">
-        <form class="booking-form" [formGroup]="bookingForm" (ngSubmit)="book()">
-            <div class="col-md-3">
-                <div class="input-field form-group">
-                    <input id="origin-entry" class="form-control" type="text" formControlName="origin" placeholder="Origin"/> 
+<div id = 'container'>
+    <div class="booking">
+        <p>Experience a <span id = "krew">Krew</span> Ride</p>
+        <form [formGroup]='bookingForm' (ngsubmit)="book()">
+            <div class = 'booking-div'>
+            
+                <div class="label">
+                    <input type='text' formControlName='destination' placeholder = "What's your destination?">
+                </div>
+                <div class="label">
+                    <input type = 'text' formControlName='origin' placeholder="Where should we pick you?">
+                </div>
+                <div class="label">
+                    <input type = 'text' placeholder="What day do you need the ride?">
+                </div>
+                <div class="label">
+                    <input type = 'text' placeholder="Pick Up Time?">
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="input-field form-group">
-                    <input id="destination-entry" class="form-control" type="text" formControlName="destination" placeholder="Destination"/> 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="input-field form-group">
-                    <input id="date-entry" class="form-control" type="text" formControlName="date" placeholder="Date"/> 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="input-field form-group">
-                    <input id="time-entry" class="form-control" type="text" formControlName="time" placeholder="Time"/> 
-                </div>
-            </div>
-            <button class="btn btn-success" type="submit" [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book</button>
+            <div class = 'bottom'>
+                    <div class="price">$40.06</div>
+                    <button type="submit" [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book Now</button>
+            </div>                
         </form>
+            
+
+    
+    </div>
+    <div class="right">
+        <div class="link">
+            <div class = 'inside_link'>
+                <a href="#">Concerts</a>
+                <a href="#">Airports</a>
+                <a href="#">Intercity</a>
+            </div>
+        </div>
+        <div class = 'booking-div'>
+            <p>Pre-Book your ride to a <span id = 'concert'>concert</span></p>
+            <img src="../assets/images/car.png">
+            <p>Enjoy Wifi, Free Breverages, and a Kool Krew Drive.</p>            
+        </div>
+        <div class = 'bottom'>
+            <button class = 'learn'>Learn More</button>
+        </div>
     </div>
 </div>
