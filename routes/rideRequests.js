@@ -26,8 +26,6 @@ router.post('/rideRequest', (req, res, next) => {
     db.rideRequests.save(rideRequest, (err, rideRequest) => {
         if (err) {
             res.send(err);
-        } else {
-            res.json(rideRequest);
         }
     });
 });
