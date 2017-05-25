@@ -31,10 +31,6 @@ let HomeComponent = class HomeComponent {
             riders: ['1', [forms_1.Validators.required, numRidersRange]]
         });
     }
-    book() {
-        console.log(this.bookingForm);
-        console.log(JSON.stringify(this.bookingForm.value));
-    }
 };
 HomeComponent = __decorate([
     core_1.Component({

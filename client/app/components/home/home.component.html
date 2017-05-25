@@ -1,7 +1,7 @@
 <div id = 'container'>
     <div class="booking">
         <p>Experience a <span id = "krew">Krew</span> Ride</p>
-        <form [formGroup]='bookingForm' (ngsubmit)="book()">
+        <form [formGroup]='bookingForm'>
             <div class = 'booking-div'>
             
                 <div class="label">
@@ -19,7 +19,7 @@
             </div>
             <div class = 'bottom'>
                     <div class="price">$40.06</div>
-                    <button type="submit" [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book Now</button>
+                    <button [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book Now</button>
             </div>                
         </form>
             

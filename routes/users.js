@@ -55,7 +55,6 @@ router.get('/user/:id', (req, res, next) => {
         if (err) {
             res.send(err);
         }
-        res.json(user);
     });
 });
 

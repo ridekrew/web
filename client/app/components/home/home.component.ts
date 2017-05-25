@@ -34,9 +34,4 @@ export class HomeComponent implements OnInit {
             riders: ['1', [Validators.required, numRidersRange]]
         });
     }
-
-    book() {
-        console.log(this.bookingForm);
-        console.log(JSON.stringify(this.bookingForm.value));
-    }
 }
