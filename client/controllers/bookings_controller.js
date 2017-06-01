@@ -21,17 +21,13 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 	
 	$scope.gPlace;
 	//Creating toggle for form
+	
 	$scope.show = 0;
 
 	$scope.date = new Date();
 
-	$scope.promotions = function(){
-		console.log('working')
-		$location.url('/no-promotions')
-	}
-
-
 	function setBookings(data){
+		// console.log("Data: " + data);
 		$scope.confirms = data;
 		$scope.newBooking = {};
 	}
@@ -43,6 +39,7 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 	
 	//Pass new booking info to factry	
 	$scope.book = function(newBooking){
+		console.log(newBooking)
 		BookingFactory.book(newBooking)
 		newBooking = {}; //reset form
 		$location.url('/submit')
