@@ -1,0 +1,55 @@
+<div class = 'logo'><img src = 'static/img/logo.png'></div>
+    <a href = '#' class='top-buttons'>Log in</a>
+    <a href = '#' class='top-buttons'>Sign Up</a>
+<div id = 'container' ng-controller = "booking_controller as BC">
+    <div class="booking">
+        <div class = 'top'>
+            <p>Experience a <span id = "krew">Krew</span> Ride</p>
+        </div>
+        <form>
+            <div class = 'booking-div'>
+            
+                <div class="label">
+                    
+                    <input type='text' placeholder = "What's your destination?"  ng-model = BC.newBooking.origin required googleplace>
+                
+                </div>
+                <div class="label">
+                    <input type = 'text' placeholder="Where should we pick you?" ng-model=BC.newBooking.destination required googleplace>
+                </div>
+                <div class="label">
+                    <datepicker id = 'datepicker' class = '._720kb-datepicker-today' date-format="mediumDate" date-min-limit='{{date | date: "yyyy-MM-dd"}}' >
+                    <input type = 'text' placeholder="What day do you need the ride?">
+                    </datepicker>
+                </div>
+                <div class="label">
+                    <input type = 'text' placeholder="Pick Up Time?">
+                </div>
+            </div>
+            <div class = 'bottom'>
+                    <div class="price">$40.06</div>
+                    <button [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book Now</button>
+            </div>                
+        </form>   
+    </div>
+    <div class="right">
+        <div class = 'top'>
+            <div class="link">
+                <div class = 'inside_link'>
+                    <a href="#">Concerts</a>
+                    <a href="#">Airports</a>
+                    <a href="#">Intercity</a>
+                </div>
+            </div>
+        </div>
+        <div class = 'booking-div'>
+            <p>Pre-Book your ride to a <span id = 'concert'>concert</span></p>
+            <img src="./static/img/car.png">
+            <p>Enjoy Wifi, Free Breverages, and a Kool Krew Drive.</p>            
+        </div>
+        <div class = 'bottom'>
+            <button class = 'learn'>Learn More</button>
+        </div>
+    </div>
+</div>
+<map></map>

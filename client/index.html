@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app = 'myApp'>
+	<head>
+		<title>Krew</title>
+		<link rel = 'shortcut icon' href = 'static/img/logo.ico'>
+		<!--
+
+		
+
+		Stylesheets 
+
+		-->
+
+		<link rel= 'stylesheet' href = 'bootstrap/dist/css/bootstrap.min.css'>
+		<link rel= 'stylesheet' href = 'angularjs-datepicker/dist/angular-datepicker.css'>
+		<!-- <link rel= 'stylesheet' href = 'static/stylesheet.css'> -->
+		<link rel= 'stylesheet' href = 'static/homepage.css'>
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext" rel="stylesheet">
+
+		
+		<!-- 
+
+		Angular Components
+
+		 -->
+		<script src = '/angular/angular.js'></script>
+		<script src = '/angular-route/angular-route.js'></script>
+		<script src = '/angular-sanitize/angular-sanitize.min.js'></script>
+		<script src = '/angularjs-datepicker/dist/angular-datepicker.js'></script>
+		<script src = 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'></script>
+		<script src = '/config/app.js'></script>
+		<script src = '/controllers/bookings_controller.js'></script>
+		<script src = 'factories/booking_factory.js'></script>
+		
+		
+
+		  
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRKsdxb44CT-2xnq8ntY_VyoQn7XFJXfQ&libraries=places"
+        async defer></script>
+		
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body ng-view>
+	</body>
+</html>
