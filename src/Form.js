@@ -13,7 +13,7 @@ class Form extends Component {
 
                 <Row>
 
-                <Col md={6} sm={6}>
+                <Col md={6} sm={5}>
                 <FormControl id = "formControlsFirstName" 
                 type = "text"
                 label = "First Name"
