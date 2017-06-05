@@ -12,12 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-payments": "^1.0.7",
     "angular-route": "^1.6.4",
     "angular-sanitize": "^1.6.4",
     "angular-ui-bootstrap": "^2.5.0",
     "angularjs-datepicker": "^2.1.19",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "stripe": "^4.22.0"
   }
 }

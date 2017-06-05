@@ -17,7 +17,7 @@ app.directive('googleplace', function(){
     };
 })
 
-app.controller('booking_controller', function($scope, $location, BookingFactory, $element, $sce){
+app.controller('booking_controller', function($scope, $location, BookingFactory, $element, $sce, $window){
 	
 	$scope.gPlace;
 	//Creating toggle for form
@@ -78,7 +78,32 @@ app.controller('booking_controller', function($scope, $location, BookingFactory,
 
   for (var i = 0; i < 3; i++) {
     $scope.addSlide();
-  }  
+  }
+	
+	$window.Stripe.setPublishableKey('pk_live_t34DtKRcABYPKqN4gLZgYoxx');
+	$scope.stripeCallback = function (code, result) {
+    if (result.error) {
+        window.alert('it failed! error: ' + result.error.message);
+    } else {
+        window.alert('success! token: ' + result.id);
+    }
+};
+
 });
 
 app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
+
+// app.config(function($window) {
+// 	$window.Stripe.setPublishableKey('sk_live_xzZpoV0uUICrcg79YFg3NtGj');
+
+// 	$scope.stripeCallback = function (code, result) {
+//     if (result.error) {
+//         window.alert('it failed! error: ' + result.error.message);
+//     } else {
+//         window.alert('success! token: ' + result.id);
+//     }
+// };
+// })
+// stripe
+// private Key : sk_live_xzZpoV0uUICrcg79YFg3NtGj
+// publishable : pk_live_t34DtKRcABYPKqN4gLZgYoxx

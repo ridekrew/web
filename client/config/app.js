@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', '720kb.datepicker', 'ui.bootstrap', 'ngSanitize'])
+var app = angular.module('myApp', ['ngRoute', '720kb.datepicker', 'ui.bootstrap', 'ngSanitize', 'angularPayments'])
 
 app.config(function($routeProvider){
 	$routeProvider
