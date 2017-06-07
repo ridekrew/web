@@ -1,20 +1,15 @@
-<div ng-controller="booking_controller as BC">
+<div style ="text-align: center" ng-controller="booking_controller as BC">
+	<div class = 'logo'><img src = 'static/img/logo.png'></div>
 	<div class = 'header'>
-		<div class = 'nav'>
-	
-		</div>
-		<div class = 'title'>
-			<p>Krew</p>
-		</div>
-		<div class = 'top-buttons-ctnr'>
+		
+	<!-- 	<div class = 'top-buttons-ctnr'>
 			<a href = '#'>Sign Up</a>
 			<a href = '#'>Log in</a>
-		</div>
+		</div> -->
 	</div>
 	<div class = 'heading'>
 		<h3>Review your Booking</h3>
 	</div>
-	<a href = '#'>< Go Back</a>
 	<div class = 'booking-confirmation'>
 		<div class = 'margin-div'>
 			<div class = 'confirm'>
@@ -22,7 +17,6 @@
 				<p class = 'confirm-desc'>{{confirms[0].origin}}</p>
 			</div>
 			<div class = 'confirm date-price'>
-				<!-- <p class = 'confirm-type confirm-date'>Tuesday 9/16</p> -->
 				<p class = 'confirm-desc'>{{confirms[0].date}}</p>
 				<span>......................</span>
 			</div>
@@ -45,22 +39,20 @@
 				<p class = 'confirm-desc'>{{confirms[0].arrival}}</p>
 			</div>
 		</div>
-		
-<!-- <form stripe:form="saveCustomer">
-  <fieldset>
-    <input type="text" size="20" data-stripe="number"/>
-    <input type="text" size="4" data-stripe="cvc"/>
-    <input type="text" size="2" data-stripe="exp-month"/>
-    <input type="text" size="4" data-stripe="exp-year"/>
-  </fieldset>
-  <button type="submit">Save</button>
-</form> -->
-		<form stripe-form="stripeCallback">
-		    <input ng-model="number" placeholder="Card Number" payments-format = "card" />
-		    <input ng-model="expiry" placeholder="Expiration" payments_format = 'expiry'  />
-		    <input ng-model="cvc" placeholder="CVC" payments-format = 'cvc'/>
-		    <button type="submit"  >Submit</button>
+		<form stripe-form='stripeCallback'>
+			<input type = 'text' ng-model='number' payments-format= 'card' payments-validate='card'/>
+			<input type="text" ng-model="expiry" payments-validate="expiry" />
+			<input type="text" ng-model="cvc" payments-validate="cvc" />
 		</form>
+		<a style= "margin-left:20px; position: absolute;" href = '#'>< Go Back</a>
+		<!-- <form stripe-form="stripeCallback">
+			<input ng-model="number" placeholder="Card Number" payments-format="card" />
+			<input ng-model="expiry" placeholder="Expiration" payments-format="expiry" />
+			<input ng-model="cvc" placeholder="CVC" payments-format="cvc" />
+			<button type="submit">Submit</button>
+		</form> -->
+		
+		
 		<!-- <div ng-repeat = 'confirm in confirms' >
 			<p>Pick Up Location: {{confirm.origin}}</p>
 	    	<p>Destination: {{confirm.destination}}</p>

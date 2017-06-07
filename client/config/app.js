@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', '720kb.datepicker', 'ui.bootstrap', 'ngSanitize', 'angularPayments'])
+var app = angular.module('myApp', ['ngRoute', '720kb.datepicker', 'ui.bootstrap', 'ngSanitize'])
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -17,5 +17,7 @@ app.config(function($routeProvider){
 	.when('/promotions', {
 		templateUrl: 'partials/promotions.html'
 	})
+	// stripeProvider.setPublishableKey('pk_test_Ejljklt0l8hJEa3t0y3m8jlU');
+	
 
 })

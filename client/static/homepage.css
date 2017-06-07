@@ -56,6 +56,9 @@ p{
 	height: 10vh;
 	display: inline-block;
 }
+.booking_toggle {
+	display: none;
+}
 /*
 
 Left 
@@ -280,3 +283,21 @@ Submit Page
 /*.ng-invalid {
 	color: red;
 }*/
+
+/*Responsiveness*/
+
+@media only screen and (max-width: 700px) {
+	.booking {
+		display: none;
+	}
+	.right {
+		width: 100%;
+	}
+	.booking_toggle {
+		display: inline-block;
+	}
+	button {
+		min-width: 150px;
+	}
+
+}

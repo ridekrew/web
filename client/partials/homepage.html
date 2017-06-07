@@ -2,6 +2,7 @@
     <!-- <a href = '#' class='top-buttons'>Log in</a> -->
     <a href = '#' class='top-buttons'>Sign Up</a>
 <div id = 'container' ng-controller = "booking_controller as BC">
+    <button class = 'booking_toggle'>Book Now</button>
     <div class="booking">
         <div class = 'top'>
             <p>Experience a <span id = "krew">Krew</span> Ride</p>
@@ -23,7 +24,7 @@
                     </datepicker>
                 </div>
                 <div class="label">
-                    <input type = 'text' placeholder="Pick Up Time?" ng-model=BC.newBooking.time>
+                    <input placeholder="Pick Up Time?" ng-model=BC.newBooking.time>
                 </div>
             </div>
             <div class = 'bottom'>
