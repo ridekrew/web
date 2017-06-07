@@ -80,6 +80,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
     $scope.addSlide();
   }
 
+  	$scope.price = 100;
 
 
 	
