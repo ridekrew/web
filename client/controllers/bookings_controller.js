@@ -48,13 +48,33 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 		$location.url('/submit')
 	}
 	
+	var origin = ['3108 Centerville Rd., Wilmington, DE'];
+	var destination = ['2949 Parkwood Blvd., Frisco, TX'];
 
-    $scope.price = calculatePrice();
-  
-	function calculatePrice() {
-		var origin = ['3108 Centerville Rd., Wilmington, DE'];
-		var destination = ['2949 Parkwood Blvd., Frisco, TX'];
+	$scope.destination = function(text){
+		if(text.length > 20){
+			destination = [text]
+			$scope.price = $scope.calculatePrice();
+			return destination
+		}
+	}
+	$scope.origin = function(text){
+		if (text.length > 20){
+			origin = [text]
+			$scope.price = $scope.calculatePrice();
+			return origin	
+		}
+	}
+    
+  	
+	$scope.calculatePrice = function() {
+		// var destination =  $scope.BC.newBooking.destination
+		
 
+		console.log(origin)
+		console.log(destination)
+		// var destination = $scope.destination;
+		// var origin = $scope.BC.newBooking.origin;
 		var distanceMatrix = new google.maps.DistanceMatrixService();
 		var distanceRequest = { origins: origin, destinations: destination, travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.IMPERIAL, avoidHighways: false, avoidTolls: false };
 		var price = 30;
@@ -81,6 +101,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 	function round(value, decimals) {
 		return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 	}
+	$scope.price = $scope.calculatePrice();
 
 });
 

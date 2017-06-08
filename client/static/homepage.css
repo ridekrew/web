@@ -121,6 +121,9 @@ input::-webkit-input-placeholder{
 Right
 
 */
+.nav-form{
+	display: none;
+}
 .right{
 	width: 49%;
 	height: 100vh;
