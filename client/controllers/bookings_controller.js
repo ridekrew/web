@@ -42,6 +42,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 	
 	//Pass new booking info to factry	
 	$scope.book = function(newBooking){
+		newBooking.price = $scope.price;
 		console.log(newBooking)
 		BookingFactory.book(newBooking)
 		newBooking = {}; //reset form
