@@ -80,13 +80,16 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
     $scope.addSlide();
   }
 
+  $scope.price = calculatePrice();
+  
+
   	function calculatePrice() {
 		var origin = ['3108 Centerville Rd., Wilmington, DE'];
 		var destination = ['2949 Parkwood Blvd., Frisco, TX'];
 
 		var distanceMatrix = new google.maps.DistanceMatrixService();
 		var distanceRequest = { origins: origin, destinations: destination, travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.IMPERIAL, avoidHighways: false, avoidTolls: false };
-		var price = 0;
+		var price = 30;
 		distanceMatrix.getDistanceMatrix(distanceRequest, function(response, status) {
 			if (status != google.maps.DistanceMatrixStatus.OK) {
 				console.log("There was an error.");
@@ -102,13 +105,10 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 					price = ((0.4166 * duration + 0.16 * distance) * 1.25) + 1.5
 				}
 			}
-			console.log(price);
-			return price;
+			$scope.price = price;
+			$scope.$apply();
 		});
 	}
-
-	$scope.price = calculatePrice();
-
 
 	
 	// Sripre Response Handler
