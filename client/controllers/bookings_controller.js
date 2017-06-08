@@ -105,7 +105,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 					price = ((0.4166 * duration + 0.16 * distance) * 1.25) + 1.5
 				}
 			}
-			$scope.price = price;
+			$scope.price = Number(Math.round(price+'e2')+'e-2');;
 			$scope.$apply();
 		});
 	}
