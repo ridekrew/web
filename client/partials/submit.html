@@ -1,45 +1,37 @@
-<div ng-controller="booking_controller as BC">
+<div style ="text-align: center" ng-controller="booking_controller as BC">
+	<div><img style = 'width: 50px; height:40px; margin-top: 10px;' src = 'static/img/logo.png'></div>
 	<div class = 'header'>
-		<div class = 'nav'>
-	
-		</div>
-		<div class = 'title'>
-			<p>Krew</p>
-		</div>
-		<div class = 'top-buttons-ctnr'>
+		
+	<!-- 	<div class = 'top-buttons-ctnr'>
 			<a href = '#'>Sign Up</a>
 			<a href = '#'>Log in</a>
-		</div>
+		</div> -->
 	</div>
 	<div class = 'heading'>
 		<h3>Review your Booking</h3>
 	</div>
-	<a href = '#'>< Go Back</a>
+	<a style= "margin-left:20px; float: left" href = '#'>< Go Back</a>
 	<div class = 'booking-confirmation'>
 		<div class = 'margin-div'>
 			<div class = 'confirm'>
 				<p class = 'confirm-type'>Pick Up</p>
-				<p class = 'confirm-desc'>4009 Bashful Drive</p>
 				<p class = 'confirm-desc'>{{confirms[0].origin}}</p>
 			</div>
 			<div class = 'confirm date-price'>
-				<p class = 'confirm-type confirm-date'>Tuesday 9/16</p>
 				<p class = 'confirm-desc'>{{confirms[0].date}}</p>
 				<span>......................</span>
 			</div>
 			<div class = 'confirm'>
 				<p class = 'confirm-type'>Destination</p>
-				<p class = 'confirm-desc'>4006 Aladin Drive</p>
 				<p class = 'confirm-desc'>{{confirms[0].destination}}</p>
 			</div>
 			<div class = 'confirm'>
 				<p class = 'confirm-type'>Pick Up Time</p>
-				<p class = 'confirm-desc'>3:30 p.m.</p>
 				<p class = 'confirm-desc'>{{confirms[0].time}}</p>
 			</div>
 			<div class = 'confirm date-price'>
 				<p class = 'confirm-type'>Price</p>
-				<p class = 'confirm-desc'>$45</p>
+				<p class = 'confirm-desc'>${{price}}</p>
 				<p class = 'confirm-desc'>{{confirms[0].price}}</p>
 			</div>
 			<div class = 'confirm'>
@@ -49,13 +41,84 @@
 			</div>
 		</div>
 
-		<div ng-repeat = 'confirm in confirms' >
+		
+		
+		
+		<!-- <form stripe-form="stripeCallback">
+			<input ng-model="number" placeholder="Card Number" payments-format="card" />
+			<input ng-model="expiry" placeholder="Expiration" payments-format="expiry" />
+			<input ng-model="cvc" placeholder="CVC" payments-format="cvc" />
+			<button type="submit">Submit</button>
+		</form> -->
+		
+		
+		<!-- <div ng-repeat = 'confirm in confirms' >
 			<p>Pick Up Location: {{confirm.origin}}</p>
 	    	<p>Destination: {{confirm.destination}}</p>
 	    	<p>Date: {{confirm.date}}</p>
 	    	<p>Time: <time>{{confirm.time | date: "h:mm a"}}</time></p>
-	    </div>
+	    </div> -->
     </div>
+    <div class="container">
+    <div class='row'>
+        <div class='col-md-4'></div>
+        <div class='col-md-4'>
+          <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+          <form accept-charset="UTF-8" action="/" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="pk_test_Ejljklt0l8hJEa3t0y3m8jlU" id="payment-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
+            <div class='form-row'>
+              <div class='col-xs-12 form-group required'>
+                <label class='control-label'>Name on Card</label>
+                <input class='form-control' size='4' type='text'>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                <label class='control-label'>Card Number</label>
+                <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-xs-4 form-group cvc required'>
+                <label class='control-label'>CVC</label>
+                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                <label class='control-label'>Expiration</label>
+                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                <label class='control-label'> </label>
+                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-md-12'>
+                <div class='form-control total btn btn-info'>
+                  Total:
+                  <span class='amount'>${{price}}</span>
+                </div>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-md-12 form-group'>
+                <button class='form-control btn btn-primary submit-button' type='submit'>Pay »</button>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='col-md-12 error form-group hide'>
+                <div class='alert-danger alert'>
+                  Please correct the errors and try again.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class='col-md-4'></div>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+
+
+</div>
 
 </div>
 

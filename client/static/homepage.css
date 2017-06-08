@@ -40,7 +40,7 @@ p{
 	height: 20px;
 	width: 20px;
 	display: inline-block;
-	margin: 5px;
+	margin: 5px 0px 5px 35px;
 }
 .logo img{
 	width: 250%;
@@ -55,6 +55,9 @@ p{
 .top {
 	height: 10vh;
 	display: inline-block;
+}
+.booking_toggle {
+	display: none;
 }
 /*
 
@@ -126,6 +129,10 @@ Right
 	text-align: center;
 	padding: 3% 0;
 	overflow: hidden;
+}
+.right img{
+	width: 100%;
+	height: auto;
 }
 .link{
 	width: 100%;
@@ -201,6 +208,110 @@ Bottom buttons
 	font-family: 'Lato';
 
 }
-#dateoicker input{
+.pac-container{
+	height: auto;
+}
+.pac-item {
+	height: 10vh;
+}
+
+/*
+
+Submit Page
+
+*/
+*/
+.heading{
+	text-align: center;
+}
+.booking-confirmation{
+	/*text-align: center;*/
+}
+.confirm{
+	margin: 20px 0;
+	font-size: 2em;
+	display: inline-block;
+	width: 30%;
+}
+.confirm-type{
+	font-weight: 700;
+}
+.confirm-desc{
 	font-weight: 300;
+}
+.margin-div {
+	margin: 0 auto;
+	width: 80%;
+}
+.date-price{
+	text-align: center;
+	font-weight: 300;
+}
+.date-price span{
+	height: 8px;
+	margin: 0 0;
+	font-size: 45px;
+}
+.confirm-date{
+	font-weight: 300;
+	margin: -45px 0;
+}
+
+/*Stripe*/
+
+.StripeElement {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+/*.ng-invalid {
+	color: red;
+}*/
+
+/*Responsiveness*/
+
+/*Responsiveness*/
+
+@media only screen and (max-width: 700px) {
+	.booking {
+		display: none;
+	}
+	.right {
+		width: 100%;
+	}
+	.booking_toggle {
+		display: block;
+		text-align: center;
+	}
+	button {
+		min-width: 150px;
+	}
+	.nav-form {
+		display: inline-block;
+		position: absolute;
+		text-align: left;
+		z-index: 1;	
+		background-color: white;
+	}
+	.label {
+		width: 100%;
+	}
+
+
 }

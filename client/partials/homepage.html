@@ -1,7 +1,7 @@
 <div class = 'logo'><img src = 'static/img/logo.png'></div>
-    <a href = '#' class='top-buttons'>Log in</a>
+    <!-- <a href = '#' class='top-buttons'>Log in</a> -->
     <a href = '#' class='top-buttons'>Sign Up</a>
-<div id = 'container' ng-controller = "booking_controller as BC">
+<div id = 'container' ng-controller = "booking_controller as BC"> 
     <div class="booking">
         <div class = 'top'>
             <p>Experience a <span id = "krew">Krew</span> Ride</p>
@@ -19,20 +19,46 @@
                 </div>
                 <div class="label">
                     <datepicker id = 'datepicker' class = '._720kb-datepicker-today' date-format="mediumDate" date-min-limit='{{date | date: "yyyy-MM-dd"}}' >
-                    <input type = 'text'  placeholder="What day do you need the ride?">
+                    <input type = 'text'  placeholder="What day do you need the ride?" ng-model=BC.newBooking.date>
                     </datepicker>
                 </div>
                 <div class="label">
-                    <input type = 'text' placeholder="Pick Up Time?">
+                    <input placeholder="Pick Up Time?" ng-model=BC.newBooking.time>
                 </div>
             </div>
             <div class = 'bottom'>
-                    <div class="price">$40.06</div>
-                    <button [routerLink]="['/confirm']" [queryParams]="bookingForm.value">Book Now</button>
+                    <div class="price">${{price}}</div>
+                    <button  ng-click= 'book(BC.newBooking)'>Book Now</button>
             </div>                
         </form>   
     </div>
     <div class="right">
+        <button class = 'booking_toggle' ng-click='toggle()'>Book Now</button>
+        <form class = 'nav-form' ng-show='show==true'>
+        <div class = 'booking-div'>
+        
+            <div class="label">
+                
+                <input type='text' placeholder = "What's your destination?"  ng-model = BC.newBooking.origin required googleplace>
+            
+            </div>
+            <div class="label">
+                <input type = 'text' placeholder="Where should we pick you?" ng-model=BC.newBooking.destination required googleplace>
+            </div>
+            <div class="label">
+                <datepicker id = 'datepicker' class = '._720kb-datepicker-today' date-format="mediumDate" date-min-limit='{{date | date: "yyyy-MM-dd"}}' >
+                <input type = 'text'  placeholder="What day do you need the ride?" ng-model=BC.newBooking.date>
+                </datepicker>
+            </div>
+            <div class="label">
+                <input placeholder="Pick Up Time?" ng-model=BC.newBooking.time>
+            </div>
+        </div>
+        <div class = 'bottom'>
+                <div class="price">${{price}}</div>
+                <button  ng-click= 'book(BC.newBooking)'>Book Now</button>
+        </div>                
+    </form> 
         <div class = 'top'>
             <div class="link">
                 <div class = 'inside_link'>
