@@ -286,6 +286,8 @@ Submit Page
 
 /*Responsiveness*/
 
+/*Responsiveness*/
+
 @media only screen and (max-width: 700px) {
 	.booking {
 		display: none;
@@ -294,10 +296,22 @@ Submit Page
 		width: 100%;
 	}
 	.booking_toggle {
-		display: inline-block;
+		display: block;
+		text-align: center;
 	}
 	button {
 		min-width: 150px;
 	}
+	.nav-form {
+		display: inline-block;
+		position: absolute;
+		text-align: left;
+		z-index: 1;	
+		background-color: white;
+	}
+	.label {
+		width: 100%;
+	}
+
 
 }
