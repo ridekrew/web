@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-payments": "^1.0.7",
     "angular-route": "^1.6.4",
     "angular-sanitize": "^1.6.4",
     "angular-ui-bootstrap": "^2.5.0",
