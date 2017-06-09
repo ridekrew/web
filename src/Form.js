@@ -5,11 +5,13 @@ import {Col,Row} from "react-bootstrap";
 class Form extends Component {
   render() {
     return (
-        <div>
+        <div className = "form_div">
+                
+            
+            <h1>Profile</h1>
+                
+
             <form>
-                <Row>
-                    <h1>Profile</h1>
-                </Row>
 
                 <Row>
 
@@ -69,6 +71,11 @@ class Form extends Component {
                 </Col>
 
                 </Row>
+                
+                <h1>Social Security</h1>
+                <p>We need your social security number for the driver background check</p>
+                <p>The information will stay private and secure</p>
+                <Row>
                     <Col md={6} sm={6}>
                     <FormControl id = "formControlsSocialSecurity" 
                     type = "text"
@@ -76,11 +83,27 @@ class Form extends Component {
                     placeholder = "Social Security">
                     </FormControl> 
                     </Col>
-
-                <Row>
-                    
-
                 </Row>
+                    <h1>Background Check</h1>
+                <Row>
+                    <FormControl id = "formControlsBackgroundCheck"
+                    type = "checkbox"
+                    label = "I akcnowledge"
+                    placeholder = "Social Security">
+                    </FormControl>
+                </Row>
+                <h1>Driver License</h1>
+                <p>Upload a photo of your driver livense.</p>
+                <Row>
+                    <button> Upload </button>
+                </Row> 
+
+                <h1>Vehicle Insurance</h1>
+                <p>Upload a photo of your vehicle insurance.</p>
+                <Row>
+                    <button> Upload </button>
+                </Row>
+
             </form>
         </div>
 
