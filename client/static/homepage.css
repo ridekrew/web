@@ -1,3 +1,6 @@
+body{
+	zoom: 100%;
+}
 #container {
 	color: #4f4f4f;
     font-family: 'Lato', sans-serif;
@@ -36,20 +39,24 @@ button{
 p{
 	margin: 0;
 }
-.logo {
-	height: 20px;
-	width: 20px;
-	display: inline-block;
-	margin: 5px 0px 5px 35px;
+
+/*top*/
+.top-bar{
+	border-bottom: solid 1px;
+	color: #BDBDBD;
 }
-.logo img{
-	width: 250%;
-	height: 200%;
+
+.logo{
+	height: 40px;
+	width: 50px;
+	margin: 5px 0px 5px 35px;
 }
 .top-buttons{
 	float:right;
 	margin: 5px;
 	color: gray;
+	top: 25px;
+	position: relative;
 }
 
 .top {
@@ -287,7 +294,30 @@ Submit Page
 	color: red;
 }*/
 
-/*Responsiveness*/
+/*
+
+
+AutoComplete
+
+
+*/
+.pac-icon{
+	display: none;
+}
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
+}
+.pac-matched{
+	color: #56CCF2;
+}
+.pac-item-query{
+	color: #56CCF2;
+}
+
+
 
 /*Responsiveness*/
 
