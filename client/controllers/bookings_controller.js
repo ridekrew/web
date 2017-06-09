@@ -49,7 +49,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 		$location.url('/submit')
 	}
 	
-	var origin = ['3108 Centerville Rd., Wilmington, DE'];
+	var origin = ['2949 Parkwood Blvd., Frisco, TX'];
 	var destination = ['2949 Parkwood Blvd., Frisco, TX'];
 
 	$scope.destination = function(text){

@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class = 'bottom'>
-                    <div class="price">${{price}}</div>
+                    <div class="price" ng-show="price > 1.5" >${{price}}</div>
                     <button  ng-click= 'book(BC.newBooking)'>Book Now</button>
             </div>                
         </form>   
