@@ -95,6 +95,7 @@ app.controller('booking_controller', function($scope, $http, $location, BookingF
 				}
 			}
 			$scope.price = round(price, 2);
+			$scope.price  = $scope.price.toFixed(2);
 			$scope.$apply();
 		});
 	}
