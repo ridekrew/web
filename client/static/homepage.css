@@ -53,10 +53,11 @@ p{
 }
 .top-buttons{
 	float:right;
-	margin: 5px;
+    margin: 10px 30px 10px 0px;
 	color: gray;
-	top: 25px;
+	top: 10px;
 	position: relative;
+	font-weight: 300;
 }
 
 .top {
